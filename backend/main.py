@@ -572,7 +572,7 @@ app = FastAPI(title="Thrift Management System (OOP + SQLAlchemy single-file)")
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://se-thrift.vercel.app"],  # Your frontend URL
+    allow_origins=["https://se-thrift.vercel.app" if not dev else "*"],  # Your frontend URL
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
