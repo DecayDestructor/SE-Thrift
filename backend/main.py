@@ -333,7 +333,7 @@ import os
 
 load_dotenv()
 
-dev=True
+dev=False
 DATABASE_URL = os.getenv("DEV_DB_URL") if dev else os.getenv("DB_URL")
 engine = create_engine(DATABASE_URL, echo=False)
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
