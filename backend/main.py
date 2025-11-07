@@ -333,7 +333,7 @@ import os
 
 load_dotenv()
 
-dev=False
+dev=True
 DATABASE_URL = os.getenv("DEV_DB_URL") if dev else os.getenv("DB_URL")
 engine = create_engine(DATABASE_URL, echo=False)
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
@@ -572,7 +572,7 @@ app = FastAPI(title="Thrift Management System (OOP + SQLAlchemy single-file)")
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://se-thrift.vercel.app" if not dev else "*"],  # Your frontend URL
+    allow_origins=["*"],  # Your frontend URL
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
